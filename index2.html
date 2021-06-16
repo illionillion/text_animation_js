@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <title>Document</title> -->
+  <meta charset="utf-8">
+  <!-- //文字コードの設定(あまり重要ではありませんが一応書いてあります) -->
+  <title>入力した文字を先頭から１文字ずつ表示させる</title>
+  <!-- //ページのタイトルを設定 -->
+</head>
+<body>
+
+
+<p id="output_space"></p>
+<!-- //最初は空欄ですが、ボタンを押すとここに文字が表示されます -->
+<input type="text" id="input_box" value="" placeholder="入力してください">
+<!-- //入力ボックスを生成 -->
+<button onclick="startTimer()">Start</button>
+<!-- //JavaScriptを呼び出すボタンを生成 -->
+
+<script type="text/javascript">
+  var n;//文字を増やす処理の回数を数える変数nの宣言
+  //↓関数の宣言↓
+  function word(){
+    var s = document.getElementById("input_box").value;//HTMLの入力欄に入力された文字を取得する変数sの宣言
+    var len = s.length;//入力された文字の変数sの文字数をカウントする変数lenの宣言
+    document.getElementById('output_space').innerHTML=s.slice(0,n);//HTMLのoutput_spaceというidの要素に、変数sの０文字目からn文字までのテキストを表示する
+    console.log(s.slice(0,n));
+    if(n < len){//文字を増やす処理の回数が入力された文字数を超えるまで繰り返す
+      n++;
+    } else{//文字を増やす処理の回数が入力された文字数を超えた時の処理
+      clearInterval(intervalId);//タイマーをリセットする
+      s=null;//変数sを空にする
+      }
+  }
+  //↓関数の宣言↓
+  function startTimer(){
+    n=1;//nの初期値を1とする
+    intervalId=setInterval(word,100);//2000ミリ秒(2.0秒)ごとにword()関数の処理を実行する
+  }
+</script>
+</body>
+</html>
