@@ -49,33 +49,10 @@ function colorchange(text){
     n=1;
   }
 
-  // for(let i=0;i<text_length;i++){
-  //     // setInterval(() => {
-  //     // document.getElementsByClassName('default')[i].classList.add('color_red');
-  //     // // console.log(document.getElementsByClassName('default')[i]);
-  //     // }, '2000');
-  //     // var a="'"+test(i)+"'";
-  //     // setTimeout(a, 1000);
-  //     setTimeout(() => {
-  //       document.getElementsByClassName('default')[i].classList.add('color_red');
-  //     }, "1000");
-  // }
 }
-
 
   //↓関数の宣言↓
   function startTimer(){
     intervalId=setTimeout(colorchange,10,text);//2000ミリ秒(2.0秒)ごとにword()関数の処理を実行する
     console.log(intervalId);
   }
-
-// document.getElementsByClassName('default')[10].classList.add('color_red');
-let num=0;
-
-function test(num){
-  document.getElementsByClassName('default')[num].classList.add('color_red');
-  console.log('hi');
-  // num++;
-}
-
-// setInterval("'"+test(num)+"'", 1000);
