@@ -41,9 +41,9 @@ function colorchange(text){
   if(n<text_length||n2<text_length){
     if(n<text_length){
       document.getElementsByClassName('default')[n].classList.add('color_red');
-      n++;    
+      n++;
     }
-    if(n>10){
+    if(n>45){
       document.getElementsByClassName('default')[n2].classList.remove('color_red');
       n2++;
     }
@@ -61,6 +61,6 @@ function colorchange(text){
 
 //↓関数の宣言↓
 function startTimer(){
-  intervalId=setTimeout(colorchange,10,text);//2000ミリ秒(2.0秒)ごとにword()関数の処理を実行する
+  intervalId=setTimeout(colorchange,1,text);//2000ミリ秒(2.0秒)ごとにword()関数の処理を実行する
   console.log(intervalId);
 }
