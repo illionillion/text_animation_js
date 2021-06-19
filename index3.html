@@ -5,17 +5,77 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>endroll</title>
+  <!-- <link rel="stylesheet" href="endcredits.css"> -->
   <style>
     *{
       outline: 1px solid #333;
     }
+    .frame {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+  .endroll {
+    transform: translateY(100vh);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+     
+    }
+  .never-enough {
+        animation-name: endroll;
+      }
+@keyframes endroll {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
   </style>
 </head>
 <body>
-  <p>endroll</p>
-  <canvas id="screen" width="300px" height="200px">
+  <p id="p">endroll</p>
 
-  </canvas>
-  <script src="endroll.js"></script>
+  <!-- <a href="#creditos" name="creditos">Open Credits</a> -->
+  <!-- Start of Credits -->
+  <div class="frame">
+  <div class="endroll" id="endroll">
+    <ul>
+      <li>Michael Gracey</li>
+    </ul>
+    <ul>
+      <li>Hugh Jackman</li>
+      <li>Zac Efron</li>
+      <li>・・・</li>
+    </ul>
+    <div id="credits">
+      エンドロールに表示するコンテンツ
+      <ul>
+        <li>aaaaa</li>
+        <li>aaaaa</li>
+        <li>aaaaa</li>
+        <li>aaaaa</li>
+        <li>aaaaa</li>
+        <li>aaaaa</li>
+        <li>aaaaa</li>
+        <li>aaaaa</li>
+        <li>aaaaa</li>
+        <li>aaaaa</li>
+        <li>aaaaa</li>
+      </ul>
+    </div>
+  </div>
+  
+</div>
+  
+
+  <!-- <canvas id="screen" width="300px" height="200px">
+
+  </canvas>-->
+  <script src="endroll.js"></script> 
+  <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+  <script src="endcredits.js"></script> -->
 </body>
 </html>
