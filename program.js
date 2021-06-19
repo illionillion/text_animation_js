@@ -26,6 +26,7 @@ outputtext= outputtext.replace( /undefined/g , "" ) ;
 text_space.innerHTML=outputtext;
 
 var n=0;//文字を増やす処理の回数を数える変数nの宣言
+var n2=0;
 var intervalId;
 
 text_space.onclick=function start(){
@@ -37,22 +38,29 @@ function colorchange(text){
   var len = text_length;//入力された文字の変数sの文字数をカウントする変数lenの宣言
   
 
-  if(n<text_length){
-    document.getElementsByClassName('default')[n].classList.add('color_red');
-    n++;
+  if(n<text_length||n2<text_length){
+    if(n<text_length){
+      document.getElementsByClassName('default')[n].classList.add('color_red');
+      n++;    
+    }
+    if(n>10){
+      document.getElementsByClassName('default')[n2].classList.remove('color_red');
+      n2++;
+    }
     startTimer();
 
   }else{
     clearInterval(intervalId);//タイマーをリセットする
     len=null;
     s=null;//変数sを空にする
-    n=1;
+    n=0;
+    n2=0;
   }
 
 }
 
-  //↓関数の宣言↓
-  function startTimer(){
-    intervalId=setTimeout(colorchange,10,text);//2000ミリ秒(2.0秒)ごとにword()関数の処理を実行する
-    console.log(intervalId);
-  }
+//↓関数の宣言↓
+function startTimer(){
+  intervalId=setTimeout(colorchange,10,text);//2000ミリ秒(2.0秒)ごとにword()関数の処理を実行する
+  console.log(intervalId);
+}
