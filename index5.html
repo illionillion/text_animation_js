@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      outline: 1px solid #333;
+    }
+    .frame {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      position: absolute;
+    }
+
+    .endroll {
+      /* transform: translateY(100vh); */
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      transition: 0.8s;
+      /* transition: 60s; */
+      position: relative;
+      top: 100%;
+    }
+
+    .move{
+      transform: translateY(-110%);
+
+    }
+  </style>
+</head>
+<body>
+  <p id="p" onclick="go()">endroll</p>
+  <p id="p" onclick="speed()">speed</p>
+
+  <!-- <a href="#creditos" name="creditos">Open Credits</a> -->
+  <!-- Start of Credits -->
+  <div class="frame">
+    <div class="endroll" id="endroll">
+      <ul>
+        <li>Michael Gracey</li>
+      </ul>
+      <ul>
+        <li>Hugh Jackman</li>
+        <li>Zac Efron</li>
+        <li>・・・</li>
+      </ul>
+      <div id="credits">
+        エンドロールに表示するコンテンツ
+        <ul>
+          <li>aaaaa</li>
+          <li>aaaaa</li>
+          <li>aaaaa</li>
+          <li>aaaaa</li>
+          <li>aaaaa</li>
+          <li>aaaaa</li>
+          <li>aaaaa</li>
+          <li>aaaaa</li>
+          <li>aaaaa</li>
+          <li>aaaaa</li>
+          <li>aaaaa</li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script>
+    var num=100;
+    var intervalId;
+    var flag="normal";
+    var animation_speed="25";
+    var css_top;
+
+    function speed(){
+      if(flag=="normal"){
+        animation_speed="10";
+        flag="high";
+      }else{
+        animation_speed="25";
+        flag="normal";
+      }
+
+    }
+
+    function go(){
+      // flag=true;
+      if(num==100){
+        css_top=$("#endroll").css("top");
+        css_top= Number(css_top.replace( "px" , "" )) ;
+
+        num=css_top;
+        console.log(css_top);
+        start();
+      }
+      
+    }
+    
+    function start(){
+
+      console.log(flag);
+      console.log(css_top);
+      console.log(num);
+
+      if (num>-css_top) {
+        num--;
+        $("#endroll").css({"top":num+"px"});
+        // console.log($("#endroll").css("top"))
+        startTimer();
+      }else{
+        clearInterval(intervalId);//タイマーをリセットする
+
+      }
+
+    }
+
+    //↓関数の宣言↓
+    function startTimer(){
+      intervalId=setTimeout(start,animation_speed);//2000ミリ秒(2.0秒)ごとにword()関数の処理を実行する
+      // console.log(intervalId);
+    }
+  </script>
+</body>
+</html>
